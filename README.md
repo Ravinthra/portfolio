@@ -2,7 +2,7 @@
 
 > **Backend & ML Engineer** · Django · FastAPI · PostgreSQL · Scikit-learn · PyTorch
 
-[![Live on Vercel](https://img.shields.io/badge/Live-Vercel-000000?logo=vercel)](https://portfolio-ravinthra.vercel.app)
+[![Live on Vercel](https://img.shields.io/badge/Live-Vercel-000000?logo=vercel)](https://portfolio-livid-two-10.vercel.app)
 
 ---
 
@@ -10,7 +10,7 @@
 
 | Platform | URL |
 |----------|-----|
-| **Vercel** | https://portfolio-ravinthra.vercel.app |
+| **Vercel** | https://portfolio-livid-two-10.vercel.app |
 
 ---
 
