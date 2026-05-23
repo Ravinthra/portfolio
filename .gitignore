@@ -22,3 +22,37 @@ npm-debug.log*
 
 # Node modules (if any)
 node_modules/
+
+# ========== SECURITY: NEVER COMMIT THESE ==========
+# Environment / secrets
+.env
+.env.*
+.env.local
+.env.development
+.env.production
+
+# Private keys & certificates
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+*.crt
+*.cer
+
+# API / service credentials
+credentials.json
+service-account*.json
+*_secret*.json
+secrets.json
+
+# Vercel / Netlify local configs (contain tokens)
+.vercel
+.netlify
+
+# Temp / build artifacts
+dist/
+build/
+.cache/
+*.tmp
