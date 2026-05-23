@@ -434,6 +434,7 @@
    =========================== */
 .projects-grid {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
 .project-card {
@@ -707,7 +708,7 @@
 }
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   max-width: 800px;
   margin: 0 auto 2.5rem;
@@ -886,6 +887,9 @@ footer span {
     border-color: var(--cyan);
   }
   .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .projects-grid {
     grid-template-columns: 1fr;
   }
   .contact-grid {
