@@ -2,8 +2,6 @@
 
 > **Backend & ML Engineer** · Django · FastAPI · PostgreSQL · Scikit-learn · PyTorch
 
-[![Deploy to GitHub Pages](https://github.com/Ravinthra/portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/Ravinthra/portfolio/actions/workflows/deploy.yml)
-[![Live on GitHub Pages](https://img.shields.io/badge/Live-GitHub%20Pages-181717?logo=github)](https://ravinthra.github.io/portfolio/)
 [![Live on Vercel](https://img.shields.io/badge/Live-Vercel-000000?logo=vercel)](https://portfolio-ravinthra.vercel.app)
 
 ---
@@ -12,7 +10,6 @@
 
 | Platform | URL |
 |----------|-----|
-| **GitHub Pages** | https://ravinthra.github.io/portfolio/ |
 | **Vercel** | https://portfolio-ravinthra.vercel.app |
 
 ---
@@ -39,7 +36,7 @@ A production-grade personal portfolio showcasing 4 deployed projects in backend 
 | Styling | Vanilla CSS (CSS custom properties, Grid, `clamp()`) |
 | Scripting | Vanilla JavaScript (ES6+, IIFEs, Canvas 2D) |
 | Fonts | Google Fonts — Syne, Inter, DM Mono |
-| Deployment | GitHub Pages (Actions) + Vercel |
+| Deployment | Vercel |
 
 ---
 
@@ -66,14 +63,10 @@ portfolio/
 │   ├── scroll.js           # Scroll progress, reveal animations, counters, timeline
 │   └── interactions.js     # 3D card tilt, magnetic buttons, mobile nav, active links
 │
-├── assets/
-│   ├── profile.jpg         # Profile photo
-│   ├── social-card.png     # OG image (1200×630)
-│   └── Ravinthra.pdf       # Downloadable resume
-│
-└── .github/
-    └── workflows/
-        └── deploy.yml      # Auto-deploy to GitHub Pages on push to main
+└── assets/
+    ├── profile.jpg         # Profile photo
+    ├── social-card.png     # OG image (1200×630)
+    └── Ravinthra.pdf       # Downloadable resume
 ```
 
 ---
@@ -103,20 +96,12 @@ portfolio/
 
 ## 📦 Deployment
 
-### GitHub Pages (Automatic)
-
-Deploys automatically via GitHub Actions on every push to `main`.
-
-**First-time setup:**
-1. Go to **Settings → Pages**
-2. Set Source to **"GitHub Actions"**
-3. Done — subsequent pushes auto-deploy ✅
-
 ### Vercel (Automatic)
 
-1. Import repo at [vercel.com](https://vercel.com)
-2. Framework: **Other** · Build command: *(empty)* · Output dir: *(empty)*
-3. Deploy — subsequent pushes auto-deploy via webhook ✅
+The site is optimized and configured for seamless deployment on Vercel:
+1. Import this repository at [vercel.com](https://vercel.com).
+2. Framework Preset: **Other** · Build Command: *(leave empty)* · Output Directory: *(leave empty)*.
+3. Deploy! Subsequent pushes to `main` will automatically trigger a new deployment via webhooks ✅.
 
 ---
 
