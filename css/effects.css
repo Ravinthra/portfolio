@@ -85,15 +85,7 @@ body::before {
   transform: translateY(0);
 }
 
-/* Project card special layout on large screens */
-@media (min-width: 900px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .project-card:nth-child(1) {
-    grid-column: 1 / -1;
-  }
-}
+/* Project card layout is handled in sections.css — 2 columns on all screens > 768px */
 
 /* Enhanced footer */
 footer a {
