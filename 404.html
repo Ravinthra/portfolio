@@ -5,6 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 — Page Not Found | Ravinthra A</title>
   <meta name="robots" content="noindex, nofollow">
+
+  <!-- ==================== SECURITY HEADERS ==================== -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'none';
+    script-src  'self';
+    style-src   'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src    https://fonts.gstatic.com;
+    img-src     'self' data:;
+    connect-src 'none';
+    frame-src   'none';
+    object-src  'none';
+    base-uri    'self';
+    form-action 'none';
+    upgrade-insecure-requests;
+  ">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), payment=(), geolocation=()">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x26A1;</text></svg>">
 
   <!-- Fonts -->
@@ -279,65 +298,7 @@
     </div>
   </main>
 
-  <script>
-    // Minimal particle field for 404 page (no Three.js dependency)
-    (function () {
-      const canvas = document.getElementById('canvas-404');
-      const ctx    = canvas.getContext('2d');
-      let W, H, particles = [];
-
-      const CYAN  = 'rgba(0, 245, 255,';
-      const GREEN = 'rgba(57, 255, 20,';
-
-      function resize() {
-        W = canvas.width  = window.innerWidth;
-        H = canvas.height = window.innerHeight;
-      }
-
-      function createParticles(n) {
-        particles = [];
-        for (let i = 0; i < n; i++) {
-          const isGreen = Math.random() < 0.25;
-          particles.push({
-            x:    Math.random() * W,
-            y:    Math.random() * H,
-            r:    Math.random() * 1.5 + 0.3,
-            vx:   (Math.random() - 0.5) * 0.25,
-            vy:   (Math.random() - 0.5) * 0.25,
-            a:    Math.random() * 0.6 + 0.1,
-            color: isGreen ? GREEN : CYAN,
-          });
-        }
-      }
-
-      function draw() {
-        ctx.clearRect(0, 0, W, H);
-        particles.forEach(p => {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = p.color + p.a + ')';
-          ctx.fill();
-
-          p.x += p.vx;
-          p.y += p.vy;
-          if (p.x < 0) p.x = W;
-          if (p.x > W) p.x = 0;
-          if (p.y < 0) p.y = H;
-          if (p.y > H) p.y = 0;
-        });
-        requestAnimationFrame(draw);
-      }
-
-      resize();
-      createParticles(120);
-      draw();
-
-      window.addEventListener('resize', () => {
-        resize();
-        createParticles(120);
-      });
-    })();
-  </script>
+  <script src="js/particles-404.js"></script>
 
 </body>
 </html>
