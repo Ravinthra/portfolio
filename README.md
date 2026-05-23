@@ -2,6 +2,7 @@
 
 > **Backend & ML Engineer** · Django · FastAPI · PostgreSQL · Scikit-learn · PyTorch
 
+[![Live on GitHub Pages](https://img.shields.io/badge/Live-GitHub%20Pages-181717?logo=github)](https://ravinthra.github.io/portfolio/)
 [![Live on Vercel](https://img.shields.io/badge/Live-Vercel-000000?logo=vercel)](https://portfolio-livid-two-10.vercel.app)
 
 ---
@@ -10,6 +11,7 @@
 
 | Platform | URL |
 |----------|-----|
+| **GitHub Pages** | https://ravinthra.github.io/portfolio/ |
 | **Vercel** | https://portfolio-livid-two-10.vercel.app |
 
 ---
@@ -36,7 +38,7 @@ A production-grade personal portfolio showcasing 4 deployed projects in backend 
 | Styling | Vanilla CSS (CSS custom properties, Grid, `clamp()`) |
 | Scripting | Vanilla JavaScript (ES6+, IIFEs, Canvas 2D) |
 | Fonts | Google Fonts — Syne, Inter, DM Mono |
-| Deployment | Vercel |
+| Deployment | GitHub Pages (Branch) + Vercel |
 
 ---
 
@@ -95,6 +97,14 @@ portfolio/
 ---
 
 ## 📦 Deployment
+
+### GitHub Pages (Automatic via Branch)
+
+The site is configured to deploy directly from the `main` branch without requiring any custom workflows:
+1. Go to **Settings → Pages** in your GitHub repository.
+2. Under **Build and deployment → Source**, select **Deploy from a branch**.
+3. Under **Branch**, select **`main`** and **`/ (root)`**.
+4. Click **Save** ✅. Subsequent pushes to `main` will automatically update your site.
 
 ### Vercel (Automatic)
 
