@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Ravinthra A</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x26A1;</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Shared base tokens -->
+  <link rel="stylesheet" href="css/base.css">
+
+  <style>
+    /* ---- 404 Page Styles ---- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-body);
+      overflow: hidden;
+    }
+
+    /* Particle canvas */
+    #canvas-404 {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* Vignette */
+    .vignette {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      background: radial-gradient(ellipse at center, transparent 30%, var(--bg) 100%);
+      pointer-events: none;
+    }
+
+    /* Content */
+    .content {
+      position: relative;
+      z-index: 2;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      gap: 0;
+    }
+
+    /* Glitch 404 number */
+    .error-code {
+      font-family: var(--font-head);
+      font-size: clamp(6rem, 20vw, 14rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(0, 245, 255, 0.3);
+      position: relative;
+      user-select: none;
+      animation: flicker 6s ease-in-out infinite;
+    }
+    .error-code::before,
+    .error-code::after {
+      content: '404';
+      position: absolute;
+      inset: 0;
+      font-family: var(--font-head);
+      font-size: inherit;
+      font-weight: 800;
+    }
+    .error-code::before {
+      color: var(--cyan);
+      -webkit-text-stroke: 0;
+      clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+      animation: glitchTop 4s ease-in-out infinite;
+    }
+    .error-code::after {
+      color: var(--green);
+      -webkit-text-stroke: 0;
+      clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+      animation: glitchBot 4s ease-in-out infinite;
+    }
+    @keyframes glitchTop {
+      0%, 90%, 100% { transform: translateX(0); opacity: 1; }
+      92%            { transform: translateX(-6px); opacity: 0.8; }
+      94%            { transform: translateX(4px);  opacity: 1; }
+      96%            { transform: translateX(-2px); }
+    }
+    @keyframes glitchBot {
+      0%, 90%, 100% { transform: translateX(0); opacity: 1; }
+      92%            { transform: translateX(6px);  opacity: 0.8; }
+      94%            { transform: translateX(-4px); opacity: 1; }
+      96%            { transform: translateX(2px); }
+    }
+    @keyframes flicker {
+      0%, 95%, 100% { opacity: 1; }
+      96%            { opacity: 0.7; }
+      97%            { opacity: 1; }
+      98%            { opacity: 0.6; }
+      99%            { opacity: 1; }
+    }
+
+    .label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--cyan);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .label::before, .label::after {
+      content: '';
+      flex: 1;
+      max-width: 40px;
+      height: 1px;
+      background: var(--cyan);
+    }
+
+    .headline {
+      font-family: var(--font-head);
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .sub {
+      color: var(--gray);
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      max-width: 420px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Buttons */
+    .btn-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.6rem;
+      border-radius: 99px;
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      background: transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--cyan);
+      transform: translateY(101%);
+      transition: transform 0.3s ease;
+      z-index: -1;
+    }
+    .btn:hover { color: var(--bg); }
+    .btn:hover::before { transform: translateY(0); }
+    .btn:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+      border-radius: 99px;
+      box-shadow: 0 0 0 4px rgba(0, 245, 255, 0.2);
+    }
+    .btn-ghost {
+      border-color: var(--border);
+      color: var(--gray);
+    }
+    .btn-ghost::before { background: var(--gray); }
+    .btn-ghost:hover { color: var(--bg); }
+
+    /* Scanline effect */
+    .scanlines {
+      position: fixed;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+      );
+    }
+
+    /* Scroll indicator / nav hint */
+    .nav-hint {
+      position: fixed;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+    .nav-logo {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--cyan);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+    .nav-logo:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 6px;
+      border-radius: 3px;
+    }
+
+    /* Animated cursor blink */
+    .cursor-blink {
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      background: var(--cyan);
+      margin-left: 2px;
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    @media (max-width: 480px) {
+      .btn-row { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo / nav back -->
+  <div class="nav-hint">
+    <a href="index.html" class="nav-logo">RA</a>
+  </div>
+
+  <!-- Particle canvas -->
+  <canvas id="canvas-404"></canvas>
+  <div class="vignette"></div>
+  <div class="scanlines"></div>
+
+  <!-- Main content -->
+  <main class="content">
+    <div class="error-code">404</div>
+    <div class="label">Page Not Found</div>
+    <h1 class="headline">You've drifted into deep space<span class="cursor-blink"></span></h1>
+    <p class="sub">
+      The page you're looking for doesn't exist, was moved,
+      or got lost somewhere in the void. Let's get you back.
+    </p>
+    <div class="btn-row">
+      <a href="index.html" class="btn">← Back to Portfolio</a>
+      <a href="index.html#contact" class="btn btn-ghost">Get in Touch</a>
+    </div>
+  </main>
+
+  <script>
+    // Minimal particle field for 404 page (no Three.js dependency)
+    (function () {
+      const canvas = document.getElementById('canvas-404');
+      const ctx    = canvas.getContext('2d');
+      let W, H, particles = [];
+
+      const CYAN  = 'rgba(0, 245, 255,';
+      const GREEN = 'rgba(57, 255, 20,';
+
+      function resize() {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+      }
+
+      function createParticles(n) {
+        particles = [];
+        for (let i = 0; i < n; i++) {
+          const isGreen = Math.random() < 0.25;
+          particles.push({
+            x:    Math.random() * W,
+            y:    Math.random() * H,
+            r:    Math.random() * 1.5 + 0.3,
+            vx:   (Math.random() - 0.5) * 0.25,
+            vy:   (Math.random() - 0.5) * 0.25,
+            a:    Math.random() * 0.6 + 0.1,
+            color: isGreen ? GREEN : CYAN,
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.color + p.a + ')';
+          ctx.fill();
+
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0) p.x = W;
+          if (p.x > W) p.x = 0;
+          if (p.y < 0) p.y = H;
+          if (p.y > H) p.y = 0;
+        });
+        requestAnimationFrame(draw);
+      }
+
+      resize();
+      createParticles(120);
+      draw();
+
+      window.addEventListener('resize', () => {
+        resize();
+        createParticles(120);
+      });
+    })();
+  </script>
+
+</body>
+</html>
