@@ -55,33 +55,48 @@
   const navOverlay = document.getElementById('navOverlay');
 
   if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
+    function toggleNav() {
       const isOpen = navLinks.classList.toggle('open');
       hamburger.classList.toggle('active');
-      if (navOverlay) navOverlay.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if (navOverlay) {
+        navOverlay.classList.toggle('open', isOpen);
+        navOverlay.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      }
 
       // Prevent body scroll when nav is open
       document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    function closeNav() {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      if (navOverlay) {
+        navOverlay.classList.remove('open');
+        navOverlay.setAttribute('aria-hidden', 'true');
+      }
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', toggleNav);
+
+    // Keyboard support: Enter and Space open/close nav (#13)
+    hamburger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleNav();
+      }
     });
 
     // Close on link click
     navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        hamburger.classList.remove('active');
-        if (navOverlay) navOverlay.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeNav);
     });
 
     // Close on overlay click
     if (navOverlay) {
-      navOverlay.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        hamburger.classList.remove('active');
-        navOverlay.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      navOverlay.addEventListener('click', closeNav);
     }
   }
 
@@ -109,15 +124,7 @@
 
   sections.forEach((s) => navObserver.observe(s));
 
-  // --- Skill Badge Spring Bounce ---
-  document.querySelectorAll('.badge').forEach((badge) => {
-    badge.addEventListener('mouseenter', () => {
-      badge.style.transition = 'all 0.35s var(--ease-spring)';
-    });
-    badge.addEventListener('mouseleave', () => {
-      badge.style.transition = 'all 0.35s var(--ease-spring)';
-    });
-  });
+
 
   // --- Dynamic Footer Year ---
   // Moved here from inline <script> to comply with Content Security Policy.

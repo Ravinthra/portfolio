@@ -33,7 +33,13 @@
     }
   }
 
+
+  resize();
+  createParticles(120);
+
+  let animId = null;
   function draw() {
+    animId = requestAnimationFrame(draw);
     ctx.clearRect(0, 0, W, H);
     particles.forEach(p => {
       ctx.beginPath();
@@ -48,12 +54,15 @@
       if (p.y < 0) p.y = H;
       if (p.y > H) p.y = 0;
     });
-    requestAnimationFrame(draw);
   }
 
-  resize();
-  createParticles(120);
   draw();
+
+  // Pause when tab is hidden to save battery (#4)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { cancelAnimationFrame(animId); animId = null; }
+    else if (!animId) draw();
+  });
 
   window.addEventListener('resize', () => {
     resize();

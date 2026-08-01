@@ -131,6 +131,10 @@ img {
     transition-duration: 0.1ms !important;
     scroll-behavior: auto !important;
   }
+  /* Restore system cursor for users who can't track custom canvas cursor */
+  body {
+    cursor: auto !important;
+  }
   /* Kill specific looping animations explicitly */
   .hero-scroll,
   .avatar-ring,

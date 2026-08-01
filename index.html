@@ -27,7 +27,7 @@
   <!-- Clickjacking guard (belt-and-suspenders with CSP frame-src) -->
   <meta http-equiv="X-Frame-Options" content="DENY">
   <title>Ravinthra A — Backend & ML Engineer | Portfolio</title>
-  <meta name="description" content="Portfolio of Ravinthra A — Backend &amp; ML Engineer specializing in Django, FastAPI, PostgreSQL, and Applied Machine Learning. 4 deployed production projects.">
+  <meta name="description" content="Portfolio of Ravinthra A — Backend & ML Engineer specializing in Django, FastAPI, PostgreSQL, and Applied Machine Learning. 4 deployed production projects.">
   <meta name="keywords" content="Ravinthra, Backend Engineer, ML Engineer, Python, Django, FastAPI, Portfolio">
   <meta name="author" content="Ravinthra A">
 
@@ -52,6 +52,9 @@
   <link rel="canonical" href="https://ravinthra.github.io/portfolio/">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x26A1;</text></svg>">
 
+  <!-- Preload above-the-fold profile image to eliminate render-blocking LCP -->
+  <link rel="preload" as="image" href="assets/profile.jpg" fetchpriority="high">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
@@ -64,11 +67,28 @@
   <link rel="stylesheet" href="css/effects.css">
 
   <!-- Background animation (Canvas 2D) loaded dynamically after the loader — see js/loader.js + js/three-scene.js -->
+
+  <!-- JSON-LD Structured Data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ravinthra A",
+    "url": "https://ravinthra.github.io/portfolio/",
+    "jobTitle": "Backend & ML Engineer",
+    "description": "MCA graduate building production-grade Python systems & intelligent ML pipelines.",
+    "sameAs": [
+      "https://github.com/Ravinthra",
+      "https://linkedin.com/in/ravinthra9922"
+    ],
+    "knowsAbout": ["Python", "Django", "FastAPI", "PostgreSQL", "Machine Learning", "BERT", "XGBoost"]
+  }
+  </script>
 </head>
 <body>
 
   <!-- ==================== SKIP LINK (Accessibility) ==================== -->
-  <a href="#hero" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
 
   <!-- ==================== SCROLL PROGRESS ==================== -->
@@ -82,7 +102,7 @@
   </div>
 
   <!-- ==================== MOBILE NAV OVERLAY ==================== -->
-  <div class="nav-overlay" id="navOverlay"></div>
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
   <!-- ==================== NAVBAR ==================== -->
   <nav id="navbar">
@@ -95,19 +115,22 @@
       <li><a href="#contact">Contact</a></li>
       <li><a href="assets/Ravinthra.pdf" download class="nav-resume-btn">Resume ↓</a></li>
     </ul>
-    <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
+    <div class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
       <span></span>
       <span></span>
       <span></span>
     </div>
   </nav>
 
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main id="main-content">
+
   <!-- ==================== HERO ==================== -->
   <section id="hero">
     <canvas id="hero-canvas"></canvas>
     <div class="hero-vignette"></div>
     <div class="hero-content">
-      <div class="hero-badge">Open to Work</div>
+      <div class="hero-badge" role="status" aria-live="polite">Open to Work</div>
       <h1 class="hero-name" id="heroName"></h1>
       <p class="hero-subtitle">Building production-grade Python systems & intelligent ML pipelines</p>
       <div class="hero-role" id="heroRole"></div>
@@ -144,12 +167,12 @@
         <div class="avatar-ring"></div>
         <div class="avatar-ring-2"></div>
         <div class="avatar-inner">
-          <img src="assets/profile.jpg" alt="Ravinthra A — Backend &amp; ML Engineer" class="avatar-img" loading="lazy" decoding="async">
+          <img src="assets/profile.jpg" alt="Ravinthra A — Backend &amp; ML Engineer" class="avatar-img" width="240" height="240" decoding="async">
         </div>
       </div>
       <div>
         <div class="about-text">
-          MCA fresher with hands-on experience building and deploying
+          MCA graduate with hands-on experience building and deploying
           <strong>production-grade Python applications</strong>. Skilled in
           <strong>Django</strong>, <strong>FastAPI</strong>,
           <strong>REST API design</strong>, <strong>PostgreSQL</strong>,
@@ -159,6 +182,23 @@
           writing clean, testable code and solving real-world problems with
           data-driven engineering.
         </div>
+
+        <!-- Quick-stat pills -->
+        <div class="about-stats" aria-label="Quick facts">
+          <div class="about-stat-pill">
+            <span class="about-stat-num">4</span>
+            <span class="about-stat-label">Deployed Projects</span>
+          </div>
+          <div class="about-stat-pill">
+            <span class="about-stat-num">100%</span>
+            <span class="about-stat-label">Deployed &amp; Live</span>
+          </div>
+          <div class="about-stat-pill">
+            <span class="about-stat-num">MCA</span>
+            <span class="about-stat-label">HCET · CGPA 8.49</span>
+          </div>
+        </div>
+
         <div class="about-location">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
@@ -167,6 +207,58 @@
           Sathyamangalam, Tamil Nadu, India
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ==================== WHAT I'M LEARNING ==================== -->
+  <section id="learning" class="section learning-section" aria-label="What I'm currently learning">
+    <div class="section-label">GROWTH</div>
+    <h2 class="section-heading reveal-heading">
+      What I'm Learning
+      <div class="wipe"></div>
+    </h2>
+    <div class="learning-grid">
+
+      <div class="learning-card">
+        <div class="learning-card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+            <path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/>
+            <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="learning-card-title">Redis &amp; Caching Strategies</div>
+          <div class="learning-card-sub">Cache-aside, write-through, TTL tuning for high-throughput APIs</div>
+        </div>
+      </div>
+
+      <div class="learning-card">
+        <div class="learning-card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <div>
+          <div class="learning-card-title">System Design</div>
+          <div class="learning-card-sub">Scalable architectures — load balancing, message queues, distributed caching</div>
+        </div>
+      </div>
+
+      <div class="learning-card">
+        <div class="learning-card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2a10 10 0 1010 10A10 10 0 0012 2z"/>
+            <path d="M12 8v4l3 3"/>
+          </svg>
+        </div>
+        <div>
+          <div class="learning-card-title">LLM Fine-tuning &amp; RAG</div>
+          <div class="learning-card-sub">LoRA/QLoRA fine-tuning, retrieval-augmented generation with vector stores</div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -280,6 +372,26 @@
       <!-- Project 1 -->
       <div class="project-card" data-direction="left">
         <div class="project-card-number">01</div>
+        <!-- Project thumbnail -->
+        <div class="project-thumb" aria-hidden="true">
+          <svg viewBox="0 0 340 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="340" height="140" fill="url(#g1)"/>
+            <defs><linearGradient id="g1" x1="0" y1="0" x2="340" y2="140" gradientUnits="userSpaceOnUse"><stop stop-color="#00f5ff" stop-opacity="0.06"/><stop offset="1" stop-color="#39ff14" stop-opacity="0.04"/></linearGradient></defs>
+            <!-- Table rows -->
+            <rect x="20" y="20" width="300" height="18" rx="4" fill="rgba(0,245,255,0.08)"/>
+            <rect x="20" y="46" width="220" height="12" rx="3" fill="rgba(255,255,255,0.04)"/>
+            <rect x="20" y="66" width="260" height="12" rx="3" fill="rgba(255,255,255,0.03)"/>
+            <rect x="20" y="86" width="180" height="12" rx="3" fill="rgba(255,255,255,0.04)"/>
+            <!-- Avatar circles -->
+            <circle cx="295" cy="80" r="20" fill="rgba(0,245,255,0.07)" stroke="rgba(0,245,255,0.15)" stroke-width="1"/>
+            <circle cx="295" cy="74" r="8" fill="rgba(0,245,255,0.12)"/>
+            <path d="M279 96a16 16 0 0132 0" fill="rgba(0,245,255,0.1)"/>
+            <!-- Badge chips -->
+            <rect x="20" y="108" width="54" height="16" rx="8" fill="rgba(0,245,255,0.1)"/>
+            <rect x="80" y="108" width="54" height="16" rx="8" fill="rgba(57,255,20,0.08)"/>
+            <rect x="140" y="108" width="54" height="16" rx="8" fill="rgba(0,245,255,0.06)"/>
+          </svg>
+        </div>
         <h3>Alumni Information System</h3>
         <p>
           Full-stack Django web app with 4 custom roles, OTP-based authentication,
@@ -298,11 +410,11 @@
         </div>
         <div class="project-links">
           <a class="project-cta" href="https://github.com/Ravinthra/Alumni_Information_System#readme" target="_blank" rel="noopener noreferrer">
-            View README &#8599;
+            View README &#8599;<span class="sr-only">(opens in new tab)</span>
           </a>
           <a class="project-cta project-cta-github" href="https://github.com/Ravinthra/Alumni_Information_System" target="_blank" rel="noopener noreferrer">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-            Source Code
+            Source Code<span class="sr-only">(opens in new tab)</span>
           </a>
         </div>
       </div>
@@ -310,6 +422,26 @@
       <!-- Project 2 -->
       <div class="project-card" data-direction="right">
         <div class="project-card-number">02</div>
+        <!-- Project thumbnail -->
+        <div class="project-thumb" aria-hidden="true">
+          <svg viewBox="0 0 340 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="340" height="140" fill="url(#g2)"/>
+            <defs><linearGradient id="g2" x1="0" y1="0" x2="340" y2="140" gradientUnits="userSpaceOnUse"><stop stop-color="#39ff14" stop-opacity="0.05"/><stop offset="1" stop-color="#00f5ff" stop-opacity="0.04"/></linearGradient></defs>
+            <!-- Bar chart -->
+            <rect x="30" y="90" width="28" height="35" rx="3" fill="rgba(0,245,255,0.15)"/>
+            <rect x="66" y="65" width="28" height="60" rx="3" fill="rgba(0,245,255,0.2)"/>
+            <rect x="102" y="45" width="28" height="80" rx="3" fill="rgba(57,255,20,0.18)"/>
+            <rect x="138" y="70" width="28" height="55" rx="3" fill="rgba(0,245,255,0.12)"/>
+            <rect x="174" y="50" width="28" height="75" rx="3" fill="rgba(57,255,20,0.22)"/>
+            <!-- Trend line -->
+            <polyline points="44,100 80,78 116,58 152,82 188,62" stroke="rgba(0,245,255,0.6)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Metric badges -->
+            <rect x="220" y="30" width="100" height="36" rx="8" fill="rgba(57,255,20,0.08)" stroke="rgba(57,255,20,0.15)" stroke-width="1"/>
+            <text x="270" y="52" text-anchor="middle" font-size="11" fill="rgba(57,255,20,0.9)" font-family="monospace">AUC 0.8576</text>
+            <rect x="220" y="76" width="100" height="36" rx="8" fill="rgba(0,245,255,0.06)" stroke="rgba(0,245,255,0.12)" stroke-width="1"/>
+            <text x="270" y="98" text-anchor="middle" font-size="11" fill="rgba(0,245,255,0.9)" font-family="monospace">81.34% Acc.</text>
+          </svg>
+        </div>
         <h3>Customer Churn Prediction System</h3>
         <p>
           Trained 4 ML models; Random Forest selected with top-3 feature
@@ -323,25 +455,41 @@
           <span class="badge">Render</span>
         </div>
         <div class="project-stat">
-          <span class="counter" data-target="0.8576" data-prefix="ROC-AUC " data-decimals="4" aria-label="ROC-AUC 0.8576"></span>
+          <span class="counter" data-target="0.8576" data-prefix="ROC-AUC " data-decimals="4" aria-label="ROC-AUC 0.8576" aria-atomic="true" aria-live="off"></span>
           <span class="separator">·</span>
-          <span class="counter" data-target="81.34" data-suffix="% Accuracy" data-decimals="2" aria-label="81.34% Accuracy"></span>
+          <span class="counter" data-target="81.34" data-suffix="% Accuracy" data-decimals="2" aria-label="81.34% Accuracy" aria-atomic="true" aria-live="off"></span>
         </div>
         <div class="project-links">
           <a class="project-cta" href="https://customer-churn-prediction-ezz6.onrender.com" target="_blank" rel="noopener noreferrer">
-            View Live &#8599;
+            View Live &#8599;<span class="sr-only">(opens in new tab)</span>
           </a>
           <a class="project-cta project-cta-github" href="https://github.com/Ravinthra/Customer_Churn_Prediction_System" target="_blank" rel="noopener noreferrer">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-            Source Code
+            Source Code<span class="sr-only">(opens in new tab)</span>
           </a>
         </div>
       </div>
 
-      <!-- Project 3 — Featured -->
-      <div class="project-card featured-card" data-direction="left">
+      <!-- Project 3 -->
+      <div class="project-card" data-direction="left">
         <div class="project-card-number">03</div>
-        <div class="featured-badge">★ Featured</div>
+        <!-- Project thumbnail -->
+        <div class="project-thumb" aria-hidden="true">
+          <svg viewBox="0 0 340 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="340" height="140" fill="url(#g3)"/>
+            <defs><linearGradient id="g3" x1="0" y1="0" x2="340" y2="140" gradientUnits="userSpaceOnUse"><stop stop-color="#00f5ff" stop-opacity="0.07"/><stop offset="1" stop-color="#a855f7" stop-opacity="0.05"/></linearGradient></defs>
+            <!-- SHAP waterfall bars -->
+            <rect x="25" y="35" width="75" height="18" rx="4" fill="rgba(57,255,20,0.2)"/>
+            <rect x="25" y="60" width="120" height="18" rx="4" fill="rgba(57,255,20,0.15)"/>
+            <rect x="25" y="85" width="50" height="18" rx="4" fill="rgba(0,245,255,0.12)"/>
+            <text x="110" y="48" font-size="9" fill="rgba(57,255,20,0.8)" font-family="monospace">income_ratio +0.41</text>
+            <text x="155" y="73" font-size="9" fill="rgba(57,255,20,0.7)" font-family="monospace">loan_term +0.28</text>
+            <text x="85" y="98" font-size="9" fill="rgba(0,245,255,0.7)" font-family="monospace">credit_score +0.19</text>
+            <!-- Metric badge -->
+            <rect x="225" y="55" width="95" height="28" rx="6" fill="rgba(57,255,20,0.07)" stroke="rgba(57,255,20,0.12)" stroke-width="1"/>
+            <text x="272" y="73" text-anchor="middle" font-size="10" fill="rgba(57,255,20,0.9)" font-family="monospace">66 Features</text>
+          </svg>
+        </div>
         <h3>Credit Risk / Loan Default Prediction</h3>
         <p>
           SQL-first feature engineering from 4 tables yielding 66 features;
@@ -357,17 +505,17 @@
           <span class="badge">Render</span>
         </div>
         <div class="project-stat">
-          <span class="counter" data-target="66" data-suffix=" Features" data-decimals="0" aria-label="66 Features"></span>
+          <span class="counter" data-target="66" data-suffix=" Features" data-decimals="0" aria-label="66 Features" aria-atomic="true" aria-live="off"></span>
           <span class="separator">·</span>
-          <span class="counter" data-prefix="₹" data-target="91.2" data-suffix="L Saved" data-decimals="1" aria-label="₹91.2L Saved"></span>
+          <span>Docker Compose</span>
         </div>
         <div class="project-links">
           <a class="project-cta" href="https://credit-risk-ai.onrender.com" target="_blank" rel="noopener noreferrer">
-            View Live &#8599;
+            View Live &#8599;<span class="sr-only">(opens in new tab)</span>
           </a>
           <a class="project-cta project-cta-github" href="https://github.com/Ravinthra/Credit_Risk_ML" target="_blank" rel="noopener noreferrer">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-            Source Code
+            Source Code<span class="sr-only">(opens in new tab)</span>
           </a>
         </div>
       </div>
@@ -375,6 +523,29 @@
       <!-- Project 4 -->
       <div class="project-card" data-direction="right">
         <div class="project-card-number">04</div>
+        <!-- Project thumbnail -->
+        <div class="project-thumb" aria-hidden="true">
+          <svg viewBox="0 0 340 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="340" height="140" fill="url(#g4)"/>
+            <defs><linearGradient id="g4" x1="0" y1="0" x2="340" y2="140" gradientUnits="userSpaceOnUse"><stop stop-color="#a855f7" stop-opacity="0.06"/><stop offset="1" stop-color="#00f5ff" stop-opacity="0.04"/></linearGradient></defs>
+            <!-- Document lines -->
+            <rect x="20" y="15" width="120" height="110" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <rect x="30" y="28" width="80" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
+            <rect x="30" y="42" width="95" height="4" rx="2" fill="rgba(255,255,255,0.05)"/>
+            <rect x="30" y="54" width="70" height="4" rx="2" fill="rgba(255,255,255,0.05)"/>
+            <rect x="30" y="66" width="88" height="4" rx="2" fill="rgba(255,255,255,0.04)"/>
+            <rect x="30" y="78" width="60" height="4" rx="2" fill="rgba(255,255,255,0.04)"/>
+            <!-- Match score ring -->
+            <circle cx="220" cy="65" r="38" fill="none" stroke="rgba(168,85,247,0.12)" stroke-width="6"/>
+            <circle cx="220" cy="65" r="38" fill="none" stroke="rgba(0,245,255,0.7)" stroke-width="6" stroke-dasharray="220 239" stroke-dashoffset="-30" stroke-linecap="round"/>
+            <text x="220" y="60" text-anchor="middle" font-size="16" fill="rgba(0,245,255,0.9)" font-family="monospace" font-weight="bold">F1</text>
+            <text x="220" y="78" text-anchor="middle" font-size="11" fill="rgba(57,255,20,0.8)" font-family="monospace">1.0</text>
+            <!-- Chip labels -->
+            <rect x="170" y="118" width="40" height="14" rx="7" fill="rgba(168,85,247,0.12)"/>
+            <rect x="218" y="118" width="40" height="14" rx="7" fill="rgba(0,245,255,0.08)"/>
+            <rect x="266" y="118" width="52" height="14" rx="7" fill="rgba(57,255,20,0.07)"/>
+          </svg>
+        </div>
         <h3>AI Resume Analyzer</h3>
         <p>
           Fine-tuned BERT (110M params) achieving validation F1 of 1.0 across
@@ -390,17 +561,17 @@
           <span class="badge">Hugging Face</span>
         </div>
         <div class="project-stat">
-          <span class="counter" data-prefix="F1 Score " data-target="1.0" data-decimals="1" aria-label="F1 Score 1.0"></span>
+          <span class="counter" data-prefix="F1 Score " data-target="1.0" data-decimals="1" aria-label="F1 Score 1.0" aria-atomic="true" aria-live="off"></span>
           <span class="separator">·</span>
-          <span class="counter" data-target="110" data-suffix="M Params" data-decimals="0" aria-label="110M Params"></span>
+          <span class="counter" data-target="110" data-suffix="M Params" data-decimals="0" aria-label="110M Params" aria-atomic="true" aria-live="off"></span>
         </div>
         <div class="project-links">
           <a class="project-cta" href="https://huggingface.co/spaces/Ravinthra9922/resume-analyzer" target="_blank" rel="noopener noreferrer">
-            View Live &#8599;
+            View Live &#8599;<span class="sr-only">(opens in new tab)</span>
           </a>
           <a class="project-cta project-cta-github" href="https://github.com/Ravinthra/resume_analyzer" target="_blank" rel="noopener noreferrer">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-            Source Code
+            Source Code<span class="sr-only">(opens in new tab)</span>
           </a>
         </div>
       </div>
@@ -461,12 +632,12 @@
         <span class="contact-card-value">ravinthra9922@gmail.com</span>
       </a>
 
-      <a href="tel:+917010023421" class="contact-card" rel="nofollow">
+      <a href="tel:+917010023421" class="contact-card" rel="nofollow" aria-label="Call Ravinthra">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
         </svg>
         <span class="contact-card-label">Phone</span>
-        <span class="contact-card-value">+91 7010023421</span>
+        <span class="contact-card-value" aria-hidden="true">+91 ••••• •3421</span>
       </a>
 
       <a href="https://linkedin.com/in/ravinthra9922" target="_blank" rel="noopener noreferrer" class="contact-card">
@@ -476,7 +647,7 @@
           <circle cx="4" cy="4" r="2"/>
         </svg>
         <span class="contact-card-label">LinkedIn</span>
-        <span class="contact-card-value">ravinthra9922</span>
+        <span class="contact-card-value">ravinthra9922<span class="sr-only">(opens in new tab)</span></span>
       </a>
 
       <a href="https://github.com/Ravinthra" target="_blank" rel="noopener noreferrer" class="contact-card">
@@ -484,7 +655,7 @@
           <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
         </svg>
         <span class="contact-card-label">GitHub</span>
-        <span class="contact-card-value">Ravinthra</span>
+        <span class="contact-card-value">Ravinthra<span class="sr-only">(opens in new tab)</span></span>
       </a>
     </div>
 
@@ -503,8 +674,16 @@
     <div class="available-badge">Available for full-time opportunities</div>
   </section>
 
+  </main>
+
   <!-- ==================== FOOTER ==================== -->
   <footer>
+    <a href="#hero" class="back-to-top" aria-label="Back to top">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+      Back to top
+    </a>
     <p id="footer-text">© 2025 <span>Ravinthra A</span> · Crafted with precision</p>
   </footer>
 

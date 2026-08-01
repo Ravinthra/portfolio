@@ -2,10 +2,7 @@
    COMPONENTS — Cursor, Loader, Navbar, Progress Bar, Buttons
    ============================================================ */
 
-/* ----- Accessibility: remove browser default, add custom :focus-visible ----- */
-
-/* Kill the default browser outline globally */
-*:focus { outline: none; }
+/* ----- Accessibility: enhanced :focus-visible for keyboard navigation ----- */
 
 /* Strong visible ring for keyboard navigation only */
 *:focus-visible {

@@ -107,7 +107,7 @@ A showcase of 4 production-ready, fully deployed engineering projects demonstrat
 * **Objective:** Constructed a business-critical predictive risk engine for financial assessment, targeting reduction in loan default incidents.
 * **Engineering Highlights:**
   * **SQL Feature Mining:** Engineered **66 features** using SQL joining 4 separate tables, optimized for model training.
-  * **Business Threshold Tuning:** Conducted precise financial modeling and optimization of decision boundaries, preventing **₹91.2 Lakhs** in estimated loan default overheads.
+  * **Business Threshold Tuning:** Conducted precise financial modeling and optimization of decision boundaries to minimize loan default risk.
   * **Containerized Microservices:** Created a multi-tier microservice architecture separating Django and FastAPI services using **Docker Compose** workflows.
   * **Interpretability:** Integrated a local **SHAP** explainer system to map out exact feature contributions for transparency in individual credit scoring decisions.
 * **Tech Stack:** `FastAPI` · `XGBoost` · `LightGBM` · `SHAP` · `Docker` · `PostgreSQL` · `Render`

@@ -4,9 +4,14 @@
 
 (function initScrollAnimations() {
 
-  // --- Scroll Progress Bar ---
+  // Mark body so CSS can provide noscript fallback (#26)
+  document.body.classList.add('js-loaded');
+
+  // --- Scroll Progress Bar (rAF-throttled #10) ---
   const progressBar = document.getElementById('scrollProgress');
   const navbar = document.getElementById('navbar');
+
+  let scrollTicking = false;
 
   function updateProgress() {
     const scrollTop = window.scrollY;
@@ -17,9 +22,15 @@
     if (navbar) {
       navbar.classList.toggle('scrolled', scrollTop > 60);
     }
+    scrollTicking = false;
   }
 
-  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(updateProgress);
+      scrollTicking = true;
+    }
+  }, { passive: true });
   updateProgress();
 
   // --- Section Heading Wipe Reveal ---
