@@ -776,6 +776,21 @@
   padding: 0.25rem 0.75rem;
   border-radius: 99px;
 }
+.experience-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--gray);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+}
+.experience-location svg {
+  color: var(--cyan);
+  flex-shrink: 0;
+}
 .experience-desc {
   color: var(--white);
   font-size: 1rem;
