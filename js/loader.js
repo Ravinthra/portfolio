@@ -101,10 +101,10 @@
 
     const roles = [
       'Full Stack Developer',
-      'Web Application Engineer',
       'Python & Django Developer',
-      'Frontend & Backend Dev',
-      'API & Database Integrator'
+      'FastAPI & REST APIs',
+      'PostgreSQL & Databases',
+      'Applied Machine Learning'
     ];
 
     let roleIndex = 0;
