@@ -84,6 +84,27 @@
     cardObserver.observe(card);
   });
 
+  // --- Experience Cards: Fade-up reveal ---
+  const expObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('card-visible');
+          if (window._bindTiltEffect) window._bindTiltEffect(entry.target);
+          expObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  document.querySelectorAll('.experience-card').forEach((card) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo)';
+    expObserver.observe(card);
+  });
+
 
   // --- Skill Cards: Staggered fade-up ---
   const skillObserver = new IntersectionObserver(

@@ -1,7 +1,7 @@
 # ⚡ Ravinthra A — Interactive Portfolio
-> **Production-Grade Backend & Machine Learning Engineer**
+> **Full Stack Developer at Innovalq Technologies**
 
-An elite, high-fidelity personal portfolio engineered from the ground up to showcase advanced backend microservices, semantic NLP classifiers, and predictive risk modeling. Built entirely with raw, high-performance vanilla web technologies — completely framework-free and optimized for speed, security, and accessibility.
+An elite, high-fidelity personal portfolio engineered from the ground up to showcase modern web applications, scalable backend systems, and intelligent machine learning solutions. Built entirely with raw, high-performance vanilla web technologies — completely framework-free and optimized for speed, security, and accessibility.
 
 [![Live on GitHub Pages](https://img.shields.io/badge/Live-GitHub%20Pages-181717?style=for-the-badge&logo=github)](https://ravinthra.github.io/portfolio/)
 [![Live on Vercel](https://img.shields.io/badge/Live-Vercel-000000?style=for-the-badge&logo=vercel)](https://portfolio-livid-two-10.vercel.app)

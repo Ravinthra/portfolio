@@ -100,11 +100,11 @@
     if (!heroRoleEl) return;
 
     const roles = [
-      'Backend Engineer',
-      'ML Engineer',
-      'Python Developer',
-      'API Architect',
-      'Django & FastAPI Dev'
+      'Full Stack Developer',
+      'Web Application Engineer',
+      'Python & Django Developer',
+      'Frontend & Backend Dev',
+      'API & Database Integrator'
     ];
 
     let roleIndex = 0;

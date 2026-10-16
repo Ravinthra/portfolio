@@ -26,26 +26,26 @@
         content="camera=(), microphone=(), payment=(), geolocation=(), usb=(), interest-cohort=()">
   <!-- Clickjacking guard (belt-and-suspenders with CSP frame-src) -->
   <meta http-equiv="X-Frame-Options" content="DENY">
-  <title>Ravinthra A — Backend & ML Engineer | Portfolio</title>
-  <meta name="description" content="Portfolio of Ravinthra A — Backend & ML Engineer specializing in Django, FastAPI, PostgreSQL, and Applied Machine Learning. 4 deployed production projects.">
-  <meta name="keywords" content="Ravinthra, Backend Engineer, ML Engineer, Python, Django, FastAPI, Portfolio">
+  <title>Ravinthra A. | Full Stack Developer</title>
+  <meta name="description" content="Explore Ravinthra A.'s portfolio, software projects, technical skills, and professional experience as a Full Stack Developer at Innovalq Technologies.">
+  <meta name="keywords" content="Ravinthra A, Full Stack Developer, Innovalq Technologies, Python, Django, JavaScript, Web Applications, Portfolio">
   <meta name="author" content="Ravinthra A">
 
   <!-- Open Graph / LinkedIn / WhatsApp / Facebook -->
   <meta property="og:type"         content="website">
   <meta property="og:url"          content="https://ravinthra.github.io/portfolio/">
-  <meta property="og:title"        content="Ravinthra A — Backend &amp; ML Engineer">
-  <meta property="og:description"  content="Backend &amp; ML Engineer with 4 deployed production projects in Django, FastAPI, PostgreSQL &amp; ML. Open to full-time opportunities.">
+  <meta property="og:title"        content="Ravinthra A. | Full Stack Developer">
+  <meta property="og:description"  content="Explore Ravinthra A.'s portfolio, software projects, technical skills, and professional experience as a Full Stack Developer at Innovalq Technologies.">
   <meta property="og:image"        content="https://ravinthra.github.io/portfolio/assets/social-card.png">
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt"    content="Ravinthra A — Backend &amp; ML Engineer portfolio preview">
+  <meta property="og:image:alt"    content="Ravinthra A. — Full Stack Developer portfolio preview">
   <meta property="og:locale"       content="en_IN">
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Ravinthra A — Backend &amp; ML Engineer">
-  <meta name="twitter:description" content="Backend &amp; ML Engineer with 4 deployed production projects in Django, FastAPI, PostgreSQL &amp; ML. Open to full-time opportunities.">
+  <meta name="twitter:title"       content="Ravinthra A. | Full Stack Developer">
+  <meta name="twitter:description" content="Explore Ravinthra A.'s portfolio, software projects, technical skills, and professional experience as a Full Stack Developer at Innovalq Technologies.">
   <meta name="twitter:image"       content="https://ravinthra.github.io/portfolio/assets/social-card.png">
   <meta name="twitter:image:alt"   content="Ravinthra A portfolio social card">
 
@@ -75,13 +75,17 @@
     "@type": "Person",
     "name": "Ravinthra A",
     "url": "https://ravinthra.github.io/portfolio/",
-    "jobTitle": "Backend & ML Engineer",
-    "description": "MCA graduate building production-grade Python systems & intelligent ML pipelines.",
+    "jobTitle": "Full Stack Developer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Innovalq Technologies"
+    },
+    "description": "Full Stack Developer at Innovalq Technologies specializing in responsive web applications, Python/Django backend systems, and modern web development.",
     "sameAs": [
       "https://github.com/Ravinthra",
       "https://linkedin.com/in/ravinthra9922"
     ],
-    "knowsAbout": ["Python", "Django", "FastAPI", "PostgreSQL", "Machine Learning", "BERT", "XGBoost"]
+    "knowsAbout": ["Full Stack Development", "Python", "Django", "JavaScript", "HTML5", "CSS3", "FastAPI", "PostgreSQL", "REST APIs", "Git", "Docker"]
   }
   </script>
 </head>
@@ -97,7 +101,7 @@
   <!-- ==================== LOADING SCREEN ==================== -->
   <div class="loader" id="loader">
     <div class="loader-name" id="loaderName"></div>
-    <div class="loader-sub">Backend & ML Engineer</div>
+    <div class="loader-sub">Full Stack Developer</div>
     <div class="loader-bar"><div class="loader-bar-fill"></div></div>
   </div>
 
@@ -109,6 +113,7 @@
     <a href="#hero" class="nav-logo">RA</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#education">Education</a></li>
@@ -130,12 +135,12 @@
     <canvas id="hero-canvas"></canvas>
     <div class="hero-vignette"></div>
     <div class="hero-content">
-      <div class="hero-badge" role="status" aria-live="polite">Open to Work</div>
+      <div class="hero-badge" role="status" aria-live="polite">Full Stack Developer · Innovalq Technologies</div>
       <h1 class="hero-name" id="heroName"></h1>
-      <p class="hero-subtitle">Building production-grade Python systems & intelligent ML pipelines</p>
+      <p class="hero-subtitle">Developing responsive user experiences and reliable application functionality</p>
       <div class="hero-role" id="heroRole"></div>
       <div class="hero-cta-row">
-        <a href="#projects" class="btn">View Projects</a>
+        <a href="#projects" class="btn">View My Projects</a>
         <a href="assets/Ravinthra.pdf" download class="btn btn-resume">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
@@ -144,7 +149,7 @@
           </svg>
           Download Resume
         </a>
-        <a href="#contact" class="btn btn-sm btn-green">Get in Touch</a>
+        <a href="#contact" class="btn btn-sm btn-green">Contact Me</a>
       </div>
     </div>
     <div class="hero-scroll">
@@ -167,31 +172,30 @@
         <div class="avatar-ring"></div>
         <div class="avatar-ring-2"></div>
         <div class="avatar-inner">
-          <img src="assets/profile.jpg" alt="Ravinthra A — Backend &amp; ML Engineer" class="avatar-img" width="240" height="240" decoding="async">
+          <img src="assets/profile.jpg" alt="Ravinthra A — Full Stack Developer" class="avatar-img" width="240" height="240" decoding="async">
         </div>
       </div>
       <div>
         <div class="about-text">
-          MCA graduate with hands-on experience building and deploying
-          <strong>production-grade Python applications</strong>. Skilled in
-          <strong>Django</strong>, <strong>FastAPI</strong>,
-          <strong>REST API design</strong>, <strong>PostgreSQL</strong>,
-          and applied <strong>Machine Learning</strong> (Scikit-learn, BERT/PyTorch).
-          Built <strong>4 end-to-end deployed projects</strong> spanning fintech
-          risk modeling, NLP, and full-stack web development. Passionate about
-          writing clean, testable code and solving real-world problems with
-          data-driven engineering.
+          I'm a <strong>Full Stack Developer at Innovalq Technologies</strong>,
+          focused on building functional, responsive, and maintainable web applications.
+          I enjoy solving technical problems, learning modern development practices,
+          and developing solutions that connect intuitive user interfaces with reliable backend systems.
+          With an MCA background and hands-on experience, I work across
+          <strong>Python</strong>, <strong>Django</strong>, <strong>JavaScript</strong>,
+          <strong>REST APIs</strong>, and <strong>PostgreSQL</strong> to deliver
+          clean, testable, and robust digital solutions.
         </div>
 
         <!-- Quick-stat pills -->
         <div class="about-stats" aria-label="Quick facts">
           <div class="about-stat-pill">
-            <span class="about-stat-num">4</span>
-            <span class="about-stat-label">Deployed Projects</span>
+            <span class="about-stat-num">Full Stack</span>
+            <span class="about-stat-label">Innovalq Technologies</span>
           </div>
           <div class="about-stat-pill">
-            <span class="about-stat-num">100%</span>
-            <span class="about-stat-label">Deployed &amp; Live</span>
+            <span class="about-stat-num">4</span>
+            <span class="about-stat-label">Deployed Projects</span>
           </div>
           <div class="about-stat-pill">
             <span class="about-stat-num">MCA</span>
@@ -205,6 +209,69 @@
             <circle cx="12" cy="10" r="3"/>
           </svg>
           Sathyamangalam, Tamil Nadu, India
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ==================== EXPERIENCE ==================== -->
+  <section id="experience" class="section">
+    <div class="section-label">EXPERIENCE</div>
+    <h2 class="section-heading reveal-heading">
+      Work Experience
+      <div class="wipe"></div>
+    </h2>
+    <div class="experience-timeline">
+      <div class="experience-card">
+        <div class="experience-header">
+          <div class="experience-role-group">
+            <h3 class="experience-role">Full Stack Developer</h3>
+            <div class="experience-company">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
+              <span>Innovalq Technologies</span>
+            </div>
+          </div>
+          <div class="experience-meta">
+            <span class="experience-badge current">Present</span>
+            <span class="experience-type">Full-time</span>
+          </div>
+        </div>
+        <p class="experience-desc">
+          Working as a Full Stack Developer at Innovalq Technologies, contributing to the development and improvement of web applications.
+        </p>
+        <ul class="experience-highlights">
+          <li>
+            <span class="bullet-dot"></span>
+            <span>Developing responsive user interfaces.</span>
+          </li>
+          <li>
+            <span class="bullet-dot"></span>
+            <span>Implementing backend functionality and application logic.</span>
+          </li>
+          <li>
+            <span class="bullet-dot"></span>
+            <span>Integrating APIs and databases.</span>
+          </li>
+          <li>
+            <span class="bullet-dot"></span>
+            <span>Testing, debugging, and troubleshooting application issues.</span>
+          </li>
+          <li>
+            <span class="bullet-dot"></span>
+            <span>Collaborating with team members to deliver maintainable software.</span>
+          </li>
+        </ul>
+        <div class="experience-tech-tags">
+          <span class="badge">Web Applications</span>
+          <span class="badge">Frontend UI</span>
+          <span class="badge">Backend Logic</span>
+          <span class="badge">REST APIs</span>
+          <span class="badge">Databases</span>
         </div>
       </div>
     </div>
@@ -276,25 +343,29 @@
 
       <div class="skill-card">
         <div class="skill-card-header">
-          <div class="skill-card-icon">⚡</div>
-          <div class="skill-card-title">Languages</div>
+          <div class="skill-card-icon">💻</div>
+          <div class="skill-card-title">Frontend Development</div>
         </div>
         <div class="badge-wrap">
-          <span class="badge">Python</span>
-          <span class="badge">SQL</span>
+          <span class="badge">HTML5</span>
+          <span class="badge">CSS3</span>
           <span class="badge">JavaScript</span>
+          <span class="badge">Responsive UI</span>
+          <span class="badge">DOM Manipulation</span>
         </div>
       </div>
 
       <div class="skill-card">
         <div class="skill-card-header">
-          <div class="skill-card-icon">🔧</div>
-          <div class="skill-card-title">Backend</div>
+          <div class="skill-card-icon">⚙️</div>
+          <div class="skill-card-title">Backend Development</div>
         </div>
         <div class="badge-wrap">
+          <span class="badge">Python</span>
           <span class="badge">Django</span>
           <span class="badge">FastAPI</span>
-          <span class="badge">REST API Design</span>
+          <span class="badge">REST APIs</span>
+          <span class="badge">System Architecture</span>
         </div>
       </div>
 
@@ -305,6 +376,7 @@
         </div>
         <div class="badge-wrap">
           <span class="badge">PostgreSQL</span>
+          <span class="badge">SQL</span>
           <span class="badge">ORM</span>
           <span class="badge">Query Optimization</span>
         </div>
@@ -312,45 +384,30 @@
 
       <div class="skill-card">
         <div class="skill-card-header">
-          <div class="skill-card-icon">🧠</div>
-          <div class="skill-card-title">Machine Learning</div>
-        </div>
-        <div class="badge-wrap">
-          <span class="badge">Scikit-learn</span>
-          <span class="badge">XGBoost</span>
-          <span class="badge">LightGBM</span>
-          <span class="badge">BERT</span>
-          <span class="badge">PyTorch</span>
-          <span class="badge">SHAP</span>
-          <span class="badge">Feature Engineering</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-card-header">
           <div class="skill-card-icon">🚀</div>
-          <div class="skill-card-title">DevOps & Tools</div>
+          <div class="skill-card-title">Development Tools</div>
         </div>
         <div class="badge-wrap">
-          <span class="badge">Docker</span>
           <span class="badge">Git</span>
+          <span class="badge">GitHub</span>
+          <span class="badge">Docker</span>
+          <span class="badge">Linux</span>
           <span class="badge">Gunicorn</span>
           <span class="badge">Render</span>
-          <span class="badge">WhiteNoise</span>
-          <span class="badge">Hugging Face</span>
         </div>
       </div>
 
       <div class="skill-card">
         <div class="skill-card-header">
-          <div class="skill-card-icon">🏗️</div>
-          <div class="skill-card-title">Concepts</div>
+          <div class="skill-card-icon">🧠</div>
+          <div class="skill-card-title">Additional Technologies</div>
         </div>
         <div class="badge-wrap">
-          <span class="badge">OOP</span>
-          <span class="badge">API Architecture</span>
-          <span class="badge">Microservices</span>
-          <span class="badge">Threshold Optimization</span>
+          <span class="badge">Machine Learning</span>
+          <span class="badge">Scikit-learn</span>
+          <span class="badge">XGBoost</span>
+          <span class="badge">PyTorch</span>
+          <span class="badge">BERT</span>
         </div>
       </div>
 
@@ -671,7 +728,7 @@
       </a>
     </div>
 
-    <div class="available-badge">Available for full-time opportunities</div>
+    <div class="available-badge">Full Stack Developer · Innovalq Technologies</div>
   </section>
 
   </main>
